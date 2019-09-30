@@ -185,6 +185,6 @@ func main ( ) {
 	fmt.Printf("json2 :%v\n", string(jsonBytes[:]))
 
 	var topics []Topics
-	db.Where("topic_content like ?", "%我们欧粉赚大发咯%").Find(&topics)
+	db.Where("topic_content like ?", "%福州大神吗%").Find(&topics)
 	fmt.Printf("-----topics %v\n", topics)
 }

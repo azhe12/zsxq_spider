@@ -170,6 +170,7 @@ var (
 func init() {
 	var err error
 	//链接mysql
+	//注意emoji表情需要设置字符集utf8mb4不能使utf8，否则会报错
 	db, err = gorm.Open("mysql", "root:root@tcp(127.0.0.1:3306)/zsxq?charset=utf8mb4&parseTime=True&loc=Local")
 	if err != nil {
 		panic(err)
@@ -179,6 +180,7 @@ func init() {
 	} else {
 		fmt.Printf("zsxq.topics not exist, create!\n")
 		//判断表是否存在, 不存在就创建
+		//注意emoji表情需要设置字符集utf8mb4不能使utf8，否则会报错
 		db.Set("gorm:table_options", "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci").CreateTable(Topics{})
 	}
 
